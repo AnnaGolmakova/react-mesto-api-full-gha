@@ -27,12 +27,12 @@ app.use(requestLogger);
 app.use(bodyParser.json());
 app.use(cookieParser());
 
-app.post('/signin', validateLogin, login);
-app.post('/signup', validateRegister, createUser);
+app.post('/api/signin', validateLogin, login);
+app.post('/api/signup', validateRegister, createUser);
 
 app.use(auth);
-app.use('/users', users);
-app.use('/cards', cards);
+app.use('/api/users', users);
+app.use('/api/cards', cards);
 
 app.use((req, res, next) => {
   next(new NotFoundError('Неправильный запрос API'));
