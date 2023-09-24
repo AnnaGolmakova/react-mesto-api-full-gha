@@ -1,5 +1,5 @@
 import checkResponse from './checkResponse.js';
-const BASE_URL = 'https://golmakova.nomoredomainsrocks.ru'
+const BASE_URL = 'https://golmakova.nomoredomainsrocks.ru/api'
 
 function request(url, options) {
     return fetch(url, options).then(checkResponse)

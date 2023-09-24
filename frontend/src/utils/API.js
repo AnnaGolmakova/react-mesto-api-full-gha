@@ -1,6 +1,6 @@
 class Api {
   constructor() {
-    this._baseURL = `https://golmakova.nomoredomainsrocks.ru`
+    this._baseURL = `https://golmakova.nomoredomainsrocks.ru/api`
   }
 
   _checkResponse(res) {
