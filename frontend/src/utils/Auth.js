@@ -1,6 +1,5 @@
 import checkResponse from './checkResponse.js';
-// const BASE_URL = 'https://auth.nomoreparties.co'
-const BASE_URL = 'http://localhost:3000'
+const BASE_URL = 'https://golmakova.nomoredomainsrocks.ru'
 
 function request(url, options) {
     return fetch(url, options).then(checkResponse)

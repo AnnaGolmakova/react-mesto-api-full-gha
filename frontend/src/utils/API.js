@@ -1,10 +1,6 @@
 class Api {
   constructor() {
-    this._cohortID = 'cohort-69';
-    this._token = '23d842e4-8f3f-4a07-a998-efb30ba352b8';
-    this._host = 'mesto.nomoreparties.co';
-    this._baseURL = `https://${this._host}/v1/${this._cohortID}`
-    this._baseURL = `http://localhost:3000`
+    this._baseURL = `https://golmakova.nomoredomainsrocks.ru`
   }
 
   _checkResponse(res) {
