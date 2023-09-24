@@ -1,0 +1,9 @@
+.header__user-info {
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+    color: #FFFFFF;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 22px;
+}

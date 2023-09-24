@@ -1,0 +1,34 @@
+.save-button {
+  width: 100%;
+  height: 46px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  color: #FFFFFF;
+  background: #000000;
+  border-radius: 2px;
+  margin: 13px 0 0 0;
+  padding: 14px 82px;
+  border: none;
+  cursor: pointer;
+}
+
+@media only screen and (min-width: 800px) {
+  .save-button {
+    font-size: 18px;
+    line-height: 22px;
+    height: 50px;
+  }
+}
+
+.save-button:hover {
+  opacity: 0.8;
+}
+
+.save-button:disabled {
+  background-color: #FFFFFF;
+  opacity: 0.2;
+  color: #000000;
+  border: 1px solid rgba(0, 0, 0, 1);
+  cursor: unset;
+}

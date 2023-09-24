@@ -1,0 +1,26 @@
+.cards {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: 36px 0 0 0;
+  padding: 0;
+  list-style: none;
+  gap: 20px;
+}
+
+@media only screen and (min-width: 540px) {
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 17px;
+    row-gap: 20px;
+  }
+}
+
+@media only screen and (min-width: 800px) {
+  .cards {
+    grid-template-columns: repeat(3, 1fr);
+    margin: 50px 0 0 0;
+  }
+}
