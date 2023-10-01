@@ -15,6 +15,7 @@ const auth = require('./middlewares/auth');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 const { validateLogin, validateRegister } = require('./middlewares/validation');
 const errorHandler = require('./middlewares/error-handler');
+const { cors } = require('./middlewares/cors');
 
 const NotFoundError = require('./errors/not-found-err');
 
@@ -24,6 +25,8 @@ const port = 3000;
 mongoose.connect('mongodb://localhost:27017/mestodb', {
   useNewUrlParser: true,
 });
+
+app.use(cors);
 
 app.use(requestLogger);
 app.use(bodyParser.json());

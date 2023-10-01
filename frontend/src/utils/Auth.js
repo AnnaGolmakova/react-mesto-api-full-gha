@@ -8,6 +8,7 @@ function request(url, options) {
 export const authorize = (email, password) => {
     return request(`${BASE_URL}/signin`, {
         method: 'POST',
+        credentials: 'include',
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
@@ -30,6 +31,7 @@ export const register = (email, password) => {
 export const userInfo = (token) => {
     return request(`${BASE_URL}/users/me`, {
         method: 'GET',
+        credentials: 'include',
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json',
