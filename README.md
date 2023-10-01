@@ -13,4 +13,4 @@ IP 158.160.65.216
 
 Frontend https://golmakova.nomoredomainsrocks.ru
 
-Backend https://golmakova.nomoredomainsrocks.ru/api/
+Backend https://api.golmakova.nomoredomainsrocks.ru
