@@ -11,6 +11,8 @@ const ConflictError = require('../errors/conflict-err');
 
 const { CREATED } = require('../constants');
 
+const { NODE_ENV, JWT_SECRET } = process.env;
+
 module.exports.createUser = (req, res, next) => {
   const {
     name, about, avatar, email, password,
@@ -146,7 +148,11 @@ module.exports.login = (req, res, next) => {
         return Promise.reject(new UnauthorizedError('Неправильные почта или пароль'));
       }
 
-      const token = jwt.sign({ _id: user._id }, 'some-secret-key', { expiresIn: '7d' });
+      const token = jwt.sign(
+        { _id: user._id },
+        NODE_ENV === 'production' ? JWT_SECRET : 'dev-secret',
+        { expiresIn: '7d' },
+      );
 
       return res
         .cookie('token', token, { httpOnly: true })
