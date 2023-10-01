@@ -57,7 +57,7 @@ module.exports.putLike = (req, res, next) => {
     },
     { new: true },
   )
-    .populate('likes')
+    .then((card) => card.populate(['owner', 'likes']))
     .then((card) => {
       if (card === null) {
         throw new NotFoundError('Карточка не найдена');
