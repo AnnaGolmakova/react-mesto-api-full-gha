@@ -4,7 +4,6 @@ const jwt = require('jsonwebtoken');
 const User = require('../models/user');
 
 const NotFoundError = require('../errors/not-found-err');
-const InternalServerError = require('../errors/internal-server-err');
 const BadRequestError = require('../errors/bad-request-err');
 const UnauthorizedError = require('../errors/unauthorized-err');
 const ConflictError = require('../errors/conflict-err');
@@ -45,7 +44,7 @@ module.exports.createUser = (req, res, next) => {
 module.exports.getUsers = (req, res, next) => {
   User.find({})
     .then((users) => res.send(users))
-    .catch(() => next(new InternalServerError('Не удалось получить пользователей')));
+    .catch(next);
 };
 
 module.exports.getUserById = (req, res, next) => {
@@ -72,12 +71,7 @@ module.exports.getMyUser = (req, res, next) => {
       }
       return res.send(user);
     })
-    .catch((err) => {
-      if (err.name === 'CastError') {
-        return next(new BadRequestError('Неправильно передан ID пользователя'));
-      }
-      return next(err);
-    });
+    .catch(next);
 };
 
 module.exports.updateUserInfo = (req, res, next) => {

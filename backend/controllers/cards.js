@@ -1,7 +1,6 @@
 const Card = require('../models/card');
 
 const NotFoundError = require('../errors/not-found-err');
-const InternalServerError = require('../errors/internal-server-err');
 const BadRequestError = require('../errors/bad-request-err');
 const ForbiddenError = require('../errors/forbidden-err');
 
@@ -26,7 +25,7 @@ module.exports.getCards = (req, res, next) => {
   Card.find({})
     .populate(['owner', 'likes'])
     .then((cards) => res.send(cards))
-    .catch(() => next(new InternalServerError('Не удалось получить карточки')));
+    .catch(next);
 };
 
 module.exports.deleteCardById = (req, res, next) => {
@@ -38,9 +37,9 @@ module.exports.deleteCardById = (req, res, next) => {
       if (card.owner.toString() !== req.user._id) {
         throw new ForbiddenError('У вас нет прав на удаление этой карточки');
       }
-      card.deleteOne();
-      return res.send(card);
+      return card.deleteOne();
     })
+    .then((card) => res.send(card))
     .catch((err) => {
       if (err.name === 'CastError') {
         return next(new BadRequestError('Неправильно передан ID карточки'));
